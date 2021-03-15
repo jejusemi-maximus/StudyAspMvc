@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hello.DAL\Hello.DAL.csproj">
-      <Project>{6C3071A1-535D-46FF-AF1A-9D2AC7CEB0FA}</Project>
-      <Name>Hello.DAL</Name>
+    <ProjectReference Include="..\Hello.IDAL\Hello.IDAL.csproj">
+      <Project>{687F8301-7AF0-44FB-B9E7-C3248C169232}</Project>
+      <Name>Hello.IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hello.Model\Hello.Model.csproj">
       <Project>{55315ece-9d6b-4b3f-b3d1-08d0da1abb3c}</Project>

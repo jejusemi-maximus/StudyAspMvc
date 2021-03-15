@@ -1,14 +1,14 @@
-﻿using Hello.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Hello.Model;
+using Hello.IDAL;
 
 namespace Hello.MSSQL.DAL
 {
-    public class UserDAL : IUserDAL
+    public class UserDAL : IUserDal
     {
         public User GetUser(int userNo)
         {
