@@ -5,11 +5,20 @@ using System.Web;
 
 namespace EssentialTools.Models
 {
-    public class LinqCalculator
+    public class LinqCalculator : IValueCalcuator
     {
-        public decimal SumProduct(IEnumerable<Product> prod)
+        private IDiscountHelper dicounter;
+        public decimal ValueProducts(IEnumerable<Product> prod)
         {
-            return prod.Sum(p => p.Price);
+            return dicounter.ApplyDiscount(prod.Sum(p=>p.Price));
         }
+
+
+        public LinqCalculator(IDiscountHelper discountParam)
+        {
+            dicounter = discountParam;
+        }
+
+
     }
 }
