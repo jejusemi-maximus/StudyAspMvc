@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudyFisrtMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,22 @@ namespace StudyFisrtMVC.Controllers
 {
     public class TestController : Controller
     {
-        private IUserRepo repo;
-        // GET: Admin
-        public ActionResult Index()
+        private IUserRepo repository;
+
+        public TestController(IUserRepo repo)
         {
+            repository = repo;
+        }
+
+        public ActionResult ChangeLoginName(string OldName, string NewName)
+        {
+            User user = repository.FetchByLoginName(OldName);
+            user.LoginName = NewName;
+            repository.SubmitChange();
             return View();
         }
+
+        
     }
+
 }
