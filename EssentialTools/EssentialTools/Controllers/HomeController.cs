@@ -21,7 +21,7 @@ namespace EssentialTools.Controllers
             {Name="me3",Category="water",Price=512m }
         };
 
-        public HomeController(IValueCalcuator calcParam)
+        public HomeController(IValueCalcuator calcParam,IValueCalcuator clac2)
         {
             calc = calcParam;
             
