@@ -7,6 +7,8 @@ namespace EssentialTools.Models
 {
     public class LinqCalculator : IValueCalcuator
     {
+        public static int counter = 0;
+
         private IDiscountHelper dicounter;
         public decimal ValueProducts(IEnumerable<Product> prod)
         {
@@ -17,6 +19,8 @@ namespace EssentialTools.Models
         public LinqCalculator(IDiscountHelper discountParam)
         {
             dicounter = discountParam;
+            System.Diagnostics.Debug.WriteLine(string.Format("tmstamce {0}", ++counter));
+
         }
 
 

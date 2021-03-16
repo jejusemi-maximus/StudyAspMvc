@@ -24,6 +24,7 @@ namespace EssentialTools.Controllers
         public HomeController(IValueCalcuator calcParam)
         {
             calc = calcParam;
+            
         }
 
         // GET: Home

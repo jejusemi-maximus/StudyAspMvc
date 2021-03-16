@@ -19,17 +19,25 @@ namespace Hello.BLL
 
         public User GetUser(int userNo)
         {
-            throw new NotImplementedException();
+            if (userNo <= 0)
+            {
+                throw new ArgumentException();
+            }
+            return _userDal.GetUser(userNo);
         }
 
         public List<User> GetUserList()
         {
-            throw new NotImplementedException();
+            return _userDal.GetUserList();
         }
 
         public bool SaveUser(User user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentException();
+            }
+            return _userDal.SaveUser(user);
         }
     }
 }
