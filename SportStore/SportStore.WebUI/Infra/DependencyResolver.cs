@@ -1,6 +1,7 @@
 ﻿using Moq;
 using Ninject;
 using SportStore.Domain;
+using SportStore.Domain.ConCreate;
 using SportStore.Domain.Entities;
 using SportStore.Domain.Repository;
 using System;
@@ -23,15 +24,7 @@ namespace SportStore.WebUI.Infra
 
         private void AddBindings()
         {
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(p => p.Products).Returns(new List<Product>
-            {
-                new Product {Name ="baseball",Price=25 },
-                new Product {Name="soccer",Price=35 },
-                new Product {Name="ballyball",Price=66 }
-            });
-
-            kernel.Bind<IProductRepository>().ToConstant(mock.Object);
+            kernel.Bind<IProductRepository>().To<EFProductRepository>();
 
         }
 
