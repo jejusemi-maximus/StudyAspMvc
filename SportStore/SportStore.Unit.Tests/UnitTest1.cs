@@ -32,7 +32,7 @@ namespace SportStore.Unit.Tests
             ProductController controller = new ProductController(mock.Object);
             controller.PageSize = 3;
 
-            ProductListViewModel result = (ProductListViewModel)controller.List(2).Model;
+            ProductListViewModel result = (ProductListViewModel)controller.List(null,2).Model;
 
             //assert
             Product[] prodArr = result.Products.ToArray();
