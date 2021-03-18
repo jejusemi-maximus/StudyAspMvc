@@ -1,0 +1,42 @@
+﻿@model SportStore.WebUI.Models.CartIndexViewModel
+
+@{ 
+    ViewBag.Title = "Sport Store : Your Cart";
+}
+
+<h2> Your Cart</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>수량</th>
+            <th>ITEM</th>
+
+            <th class="text-right">가격</th>
+            <th class="text-right">총 가격</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var line in Model.Cart.cartLine)
+        {
+            <tr>
+                <td class="text-center">@line.Quantity</td>
+                <td class="text-left">@line.Product.Name</td>
+                <td class="text-right">@line.Product.Price.ToString("c")</td>
+                <td class="text-right">
+                    @((line.Quantity * line.Product.Price).ToString("c"))
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.Cart.ComputeTotalValue().ToString("c")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.returnUrl">Continue Shopping</a>
+</div>
