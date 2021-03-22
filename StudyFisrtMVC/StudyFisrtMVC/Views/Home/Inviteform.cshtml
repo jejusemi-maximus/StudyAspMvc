@@ -1,0 +1,29 @@
+﻿@model StudyFisrtMVC.Models.Guests
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inviteform</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+        
+    {
+        @Html.ValidationSummary()
+        <p>너의 이름은 : @Html.TextBoxFor(x => x.Name)</p>
+        <p>너의 이름은 : @Html.TextBoxFor(x => x.Email)</p>
+        <p>너의 이름은 : @Html.TextBoxFor(x => x.Phone)</p>
+        <p>
+            참가여부 ?
+            @Html.DropDownListFor(x => x.Attend, new[] {
+            new SelectListItem(){ Text = "yes",Value=bool.TrueString},new SelectListItem() { Text="no",Value=bool.FalseString}}, "옵션을 선택하세요")
+            <input type="submit" value="제출!"/>
+        </p>
+    }
+</body>
+</html>

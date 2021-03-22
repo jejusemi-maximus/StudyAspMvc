@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+    var me2 = ViewBag.time;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="text-center">
+        <div id="me">
+            {{contents}}
+
+        </div>
+
+        <span>
+            @Html.ActionLink("참가여부 폼", "Inviteform");
+        </span>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#me",
+            data: {
+                contents: @me2
+
+                }
+        });
+
+    </script>
+
+</body>
+</html>

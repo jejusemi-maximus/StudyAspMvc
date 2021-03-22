@@ -1,0 +1,28 @@
+﻿@model StudyFisrtMVC.Models.Guests
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>thanks</title>
+</head>
+<body>
+    <div>
+        thank! @Model.Name
+        @if (Model.Attend == null)
+        {
+            @: 참석
+
+        }
+        else
+        {
+            @:  참석아님
+        }
+    </div>
+</body>
+</html>
