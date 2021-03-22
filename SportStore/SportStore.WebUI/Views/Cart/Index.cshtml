@@ -3,9 +3,12 @@
 @{ 
     ViewBag.Title = "Sport Store : Your Cart";
 }
+<style>
+    #cartTable td {vertical-align:middle;}
+</style>
 
 <h2> Your Cart</h2>
-<table class="table">
+<table id="cartTable" class="table">
     <thead>
         <tr>
             <th>수량</th>
@@ -24,6 +27,14 @@
                 <td class="text-right">@line.Product.Price.ToString("c")</td>
                 <td class="text-right">
                     @((line.Quantity * line.Product.Price).ToString("c"))
+                </td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                    {
+                        @Html.Hidden("ProductID",line.Product.ProductID)
+                        @Html.HiddenFor(x=>x.returnUrl)
+                        <input class="btn btn-sm btn-warning" type="submit" value="Remove" />
+                    }
                 </td>
             </tr>
         }
