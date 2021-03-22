@@ -1,13 +1,9 @@
-﻿using Moq;
-using Ninject;
-using SportStore.Domain;
+﻿using Ninject;
 using SportStore.Domain.ConCreate;
-using SportStore.Domain.Entities;
 using SportStore.Domain.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace SportStore.WebUI.Infra
@@ -26,6 +22,11 @@ namespace SportStore.WebUI.Infra
         {
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
 
+            EmailSettings email = new EmailSettings
+            {
+                WriteAsfile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", email);
         }
 
         public object GetService(Type serviceType)

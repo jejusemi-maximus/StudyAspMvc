@@ -12,11 +12,14 @@ namespace SportStore.WebUI.Controllers
     public class CartController : Controller
     {
         private IProductRepository repository;
+        private IOrderProcessor orderRepo;
 
-        public CartController(IProductRepository repo)
+        public CartController(IProductRepository repo, IOrderProcessor order)
         {
             repository = repo;
+            orderRepo = order;
         }
+
 
         public ViewResult Index(Cart cart, string returnURL)
         {
@@ -51,5 +54,39 @@ namespace SportStore.WebUI.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
+
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
+        public ViewResult Checkout()
+        {
+            return View(new ShoppingDetail());
+        }
+
+
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShoppingDetail detail)
+        {
+            if (cart.cartLine.Count() == 0)
+            {
+                ModelState.AddModelError("", "카드가 비었습니다.");
+            }
+            if (ModelState.IsValid)
+            {
+                orderRepo.ProcessOrder(cart, detail);
+                cart.Clear();
+                return View("Completed");
+
+            }
+            else
+            {
+                return View(detail);
+            }
+
+        }
+
+
+
     }
 }

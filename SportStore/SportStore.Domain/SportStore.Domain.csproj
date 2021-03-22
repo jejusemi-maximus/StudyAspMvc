@@ -113,8 +113,11 @@
   <ItemGroup>
     <Compile Include="ConCreate\EFDbContext.cs" />
     <Compile Include="ConCreate\EFProductRepository.cs" />
+    <Compile Include="ConCreate\EmailOrderProcessor.cs" />
     <Compile Include="Entities\Cart.cs" />
+    <Compile Include="Entities\ShoppingDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IOrderProcessor.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
     <Compile Include="Entities\Product.cs" />
   </ItemGroup>

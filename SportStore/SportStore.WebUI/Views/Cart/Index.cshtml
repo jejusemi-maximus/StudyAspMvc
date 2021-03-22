@@ -1,10 +1,12 @@
 ﻿@model SportStore.WebUI.Models.CartIndexViewModel
 
-@{ 
+@{
     ViewBag.Title = "Sport Store : Your Cart";
 }
 <style>
-    #cartTable td {vertical-align:middle;}
+    #cartTable td {
+        vertical-align: middle;
+    }
 </style>
 
 <h2> Your Cart</h2>
@@ -19,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var line in Model.Cart.cartLine)
+        @foreach (var line in Model.Cart.cartLine)
         {
             <tr>
                 <td class="text-center">@line.Quantity</td>
@@ -31,8 +33,8 @@
                 <td>
                     @using (Html.BeginForm("RemoveFromCart", "Cart"))
                     {
-                        @Html.Hidden("ProductID",line.Product.ProductID)
-                        @Html.HiddenFor(x=>x.returnUrl)
+                        @Html.Hidden("ProductID", line.Product.ProductID)
+                        @Html.HiddenFor(x => x.returnUrl)
                         <input class="btn btn-sm btn-warning" type="submit" value="Remove" />
                     }
                 </td>
@@ -50,4 +52,5 @@
 </table>
 <div class="text-center">
     <a class="btn btn-primary" href="@Model.returnUrl">Continue Shopping</a>
+    @Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary" })
 </div>
