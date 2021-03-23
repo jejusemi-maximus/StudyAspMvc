@@ -3,16 +3,25 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" integrity="sha256-Lsk+CDPOzTapLoAzWW0G/WeQeViS3FMzywpzPZV8SXk=" crossorigin="anonymous"></script>
+
+    </script>
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <div data-role="page" id="page1">
         <div data-theme="a" data-role="header" data-position="fixed">
             <h3>Sports Store</h3>
+            @Html.Action("Menu", "Nav")
         </div>
-        @RenderBody()
+        <div data-role="content">
+            <ul data-role="listview" data-dividertheme="b" data-inset="false">
+                @RenderBody()
+
+            </ul>
+        </div>
     </div>
 </body>
 </html>
