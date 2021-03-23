@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <style>
+        .navbar-right {
+            float: right !important;
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+    </style>
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <div class="navbar navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="#">Sport Store</a>
-        @Html.Action("Summary","Cart")
+        <a class="navbar-brand" href="#">
+        <span></span>Sport Store
+        </a>
+        @Html.Action("Summary", "Cart")
     </div>
     <div class="row panel">
         <div id="categories" class="col-md-3 col-xs-12">
-            @Html.Action("Menu","Nav")
+            @Html.Action("Menu", "Nav")
         </div>
         <div class="col-md-8 col-xs-12">
             @RenderBody()
