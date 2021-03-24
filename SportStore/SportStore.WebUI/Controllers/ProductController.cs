@@ -1,4 +1,5 @@
-﻿using SportStore.Domain.Repository;
+﻿using SportStore.Domain.Entities;
+using SportStore.Domain.Repository;
 using SportStore.WebUI.Models;
 using System.Linq;
 using System.Web.Mvc;
@@ -35,6 +36,20 @@ namespace SportStore.WebUI.Controllers
 
             };
             return View(model);
+        }
+
+
+        public FileContentResult GetImage(int productid)
+        {
+            Product prod = repository.Products
+                .FirstOrDefault(p => p.ProductID == productid);
+            if (prod != null)
+            {
+                return File(prod.ImageData, prod.ImageMimeType);
+            }else
+            {
+                return null;
+            }
         }
 
     }

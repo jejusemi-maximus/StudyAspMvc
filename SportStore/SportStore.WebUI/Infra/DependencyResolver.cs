@@ -1,6 +1,8 @@
 ﻿using Ninject;
 using SportStore.Domain.ConCreate;
 using SportStore.Domain.Repository;
+using SportStore.WebUI.Infra.Abstract;
+using SportStore.WebUI.Infra.Concreate;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -27,6 +29,8 @@ namespace SportStore.WebUI.Infra
                 WriteAsfile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
             };
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", email);
+
+            kernel.Bind<IAuthProvider>().To<FormAuthProvider>();
         }
 
         public object GetService(Type serviceType)
