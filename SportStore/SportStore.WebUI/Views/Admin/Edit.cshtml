@@ -4,7 +4,7 @@
     ViewBag.Title = @Model.Name;
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<div class="panel">
+<div class="panel"> 
     <div class="panel-heading">
         <h1>Edit @Model.Name</h1>
     </div>
@@ -26,6 +26,7 @@
                         {
                             @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
                         }
+                        @Html.ValidationMessage(property.PropertyName)
                     </div>
                 }
             }
