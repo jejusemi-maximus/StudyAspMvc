@@ -45,7 +45,7 @@
                         choose File...
                         <input type="file" name="Image" size="40"
                                style="position:absolute;z-index:2; top:0;background-color:transparent;color:transparent;"
-                               onchange='$("upload-file-info").html($(this).val());' />
+                               onchange='$("#upload-file-info").html($(this).val());'>
 
                     </a>
                     <span class="label label-info" id="upload-file-info"></span>
@@ -57,7 +57,7 @@
                 else
                 {
                     <img class="img-thumbnail" width="150" height="150"
-                         src="@Url.Action("GetImage", "Product", new { @Model.ProductID })">
+                         src="@Url.Action("GetImage", "Product", new { Model.ProductID })"/>
                 }
             </div>
         </div>
