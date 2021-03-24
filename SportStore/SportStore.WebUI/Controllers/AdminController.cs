@@ -45,6 +45,17 @@ namespace SportStore.WebUI.Controllers
                 return View(product);
             }
         }
+        [HttpPost]
+        public ActionResult Delete(int prodid)
+        {
+            Product deleteProduct = repository.DeleteProduct(prodid);
+            if (deleteProduct != null)
+            {
+                TempData["message"] = string.Format("{0} was deleted", deleteProduct.Name);
+            }
+            return RedirectToAction("Index");
+        }
+
 
         public ViewResult Create()
         {
