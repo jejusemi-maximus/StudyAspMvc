@@ -16,6 +16,15 @@ namespace ControllersAndActions.Controllers
 
             requestContext.HttpContext.Response.Write(string.Format("컨트롤러 {0} , 액션 {1}", controller, action));
 
+            if (action.ToLower() == "redirect")
+            {
+                requestContext.HttpContext.Response.Redirect("/Derived/Index");
+            }
+            else
+            {
+                requestContext.HttpContext.Response.Write(
+                    string.Format("컨트롤러:{0}, 액션: {1}", controller, action));
+            }
         }
     }
 }
