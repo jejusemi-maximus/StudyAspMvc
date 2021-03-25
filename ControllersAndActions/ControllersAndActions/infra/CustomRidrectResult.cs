@@ -9,7 +9,6 @@ namespace ControllersAndActions.infra
     public class CustomRidrectResult : ActionResult
     {
         public string url { get; set; }
-
         public override void ExecuteResult(ControllerContext context)
         {
             string fullUrl = UrlHelper.GenerateContentUrl(url, context.HttpContext);
