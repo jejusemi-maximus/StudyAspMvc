@@ -18,7 +18,7 @@ namespace ControllersAndActions.Controllers
 
             if (action.ToLower() == "redirect")
             {
-                requestContext.HttpContext.Response.Redirect("/Derived/Index/se");
+                requestContext.HttpContext.Response.Redirect("/Derived/Index");
             }
             else
             {
