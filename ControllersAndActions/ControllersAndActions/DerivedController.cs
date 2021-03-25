@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControllersAndActions.infra;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,5 +15,19 @@ namespace ControllersAndActions
             ViewBag.Message = "smsmsmsmmasdsada";
             return View("MyView");
         }
+
+        public ActionResult ProductOutPut()
+        {
+            if (Server.MachineName != "tiny")
+            {
+                return new CustomRidrectResult { url = "/base/index" };
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        
     }
 }
